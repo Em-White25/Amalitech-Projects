@@ -1,0 +1,15 @@
+services:
+  pgdatabase:
+    image: postgres:13
+    container_name: inventory
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=inventory
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
