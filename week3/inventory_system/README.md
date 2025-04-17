@@ -111,80 +111,130 @@ Tracks stock changes such as restocks or sales.
 ![ERD](ERD.png)
 
 ---
+![Schema Creation Script](sql_scripts/01_schema_creation.sql)
 
-## 📦 Phase 2: Inventory Tracking & Order Simulation
+---
+# Phase 2: Placement and Inventory Management
 
-### ✅ Highlights
-- Inserted dummy data for customers and products
-- Created `inventory_logs` table for tracking stock changes
-- Developed `place_order` function that:
-  - Inserts into `orders` and `order_details`
-  - Deducts stock from products
-  - Logs stock changes in `inventory_logs`
+### 📦 `place_order` Function
+
+This PL/pgSQL function handles the complete order placement workflow in the system. It:
+
+- Accepts a customer's ID, order status, an array of product IDs, and their respective quantities.
+- Calculates individual item prices, applies quantity-based discounts (7% for ≥10, 15% for ≥20).
+- Inserts records into `orders` and `order_details` tables.
+- Updates the stock levels in the `products` table.
+- Logs each transaction in the `inventory_logs` table.
+- Computes and updates the total order amount.
+- Provides a confirmation message with the order ID and final total.
+
+This encapsulated logic ensures transactional integrity and reflects real-time inventory updates.
+
+--- 
+![Process Order Logic](sql_scripts/02_process_order_functions.sql)
+---
+
+### 🛠️ Inventory Chnge Logging Trigger
+
+This trigger setup ensures all **manual updates** to a product's stock are automatically logged for auditing purposes.
+
+- **Function:** `log_inventory_change()`
+  - Triggered after any manual `UPDATE` to the `stock_quantity` field in the `products` table.
+  - Records the product ID, quantity changed, current timestamp, and marks it as a `'manual_update'`.
+  - Helps distinguish between automated stock changes (e.g., from orders) and manual inventory adjustments.
+
+- **Trigger:** `track_inventory_changes`
+  - Executes the above function after stock changes, maintaining a transparent history of inventory modifications.
+
+> 🔒 _Future enhancement: Include staff/user information for accountability._
+![Schema Creation Script](sql_scripts/03_trigger_functions.sql)
+
 
 ---
 
-### 🛠️ How to Simulate an Order
+# Phase 3: Monitoring and Reporting
+Created a views to provide business insghts. The various views tables provides insights into customer order summaries, products with low stocks that need restocking, and customer spending habits.
+
+![Schema Creation Script](sql_scripts/05_business_insights_views.sql)
+## 🧪 Simulated Data for Views
+
+To demonstrate the functionality of the reporting views, we simulate some order data using the existing customers and products.
+
+---
+
+### 🛒 Simulate Order Placements
+
 ```sql
+-- Place an order for customer 4 (Bob Okala)
 SELECT place_order(
-  1, -- customer_id
-  'Pending',
-  ARRAY[101, 102],
-  ARRAY[2, 1]
+    4, 
+    'processing', 
+    ARRAY[102, 103],  -- Laptop Stand and USB-C Hub
+    ARRAY[2, 3]       -- 2 Stands, 3 Hubs
 );
 
----
-
-## Monitoring and Reporting
-
-Enhanced business intelligence by creating views that simplify monitoring *orders*, *inventory levels*, and *customer insights*.
-
----
-
-### 1. Business Insights and Summaries
-
-- **Customer Order Summary**
-
-  A view named `customer_order_summary` displays all orders placed by each customer, including:
-  - Customer ID and name
-  - Order ID and date
-  - Total amount per order
-  - Number of items in the order
-
-  ```sql
-  CREATE OR REPLACE VIEW customer_order_summary AS
-  SELECT 
-      c.customer_id,
-      c.customer_name,
-      o.order_id,
-      o.order_date,
-      o.total_amount,
-      COUNT(od.product_id) AS total_items_ordered
-  FROM customers c
-  JOIN orders o ON c.customer_id = o.customer_id
-  JOIN order_details od ON o.order_id = od.order_id
-  GROUP BY c.customer_id, c.customer_name, o.order_id, o.order_date, o.total_amount
-  ORDER BY o.order_date DESC;
+-- Place another order for customer 3 (Joseph Lartey)
+SELECT place_order(
+    3, 
+    'processing', 
+    ARRAY[102], 
+    ARRAY[25]         -- 25 Laptop Stands (triggers a discount and low stock alert)
+);
 ```
 
 ---
-# 📦 Stock Replenishment and Automation
 
-This phase introduces automation features to optimize inventory management, improve operational efficiency, and categorize customers based on purchasing behavior.
+### 🔍 View Outputs (Sample Data)
 
-## 🔄 1. Stock Replenishment Procedure
+#### 📦 `customer_order_summary`
 
-A PL/pgSQL stored procedure named `replenish_stock()` is implemented to automatically detect and replenish low-stock products.
+Displays the total number of items each customer ordered per order.
 
-### ✅ Functionality:
-- Loops through all products with stock below their reorder point.
-- Calculates the replenishment amount needed to meet the reorder point.
-- Updates the product's stock in the `products` table.
-- Logs each replenishment action into the `inventory_logs` table.
-- Displays a notice for each replenished product.
+| customer_id | customer_name  | order_id | order_date | total_amount | total_items_ordered |
+|-------------|----------------|----------|------------|--------------|----------------------|
+| 3           | Joseph Lartey  | 2        | 2025-04-16 | 755.00       | 70                   |
+| 4           | Bob Okala      | 1        | 2025-04-16 | 205.50       | 10                   |
 
-### 📜 Example:
-```sql
-CALL replenish_stock();
+---
+
+#### 🧯 `low_stock_report`
+
+Lists products where the current stock is below the reorder threshold.
+
+| product_id | product_name  | stock_quantity | reorder_level | shortage |
+|------------|---------------|----------------|----------------|----------|
+| 102        | Laptop Stand  | 53             | 60             | 7        |
+
+---
+
+#### 💰 `customer_spending_tier`
+
+Segments customers by their total spending amount.
+
+| customer_id | customer_name  | total_spent | spending_tier |
+|-------------|----------------|-------------|----------------|
+| 3           | Joseph Lartey  | 755.00      | Gold           |
+| 4           | Bob Okala      | 205.50      | Silver         |
+
+> ℹ️ Note: Order IDs, dates, and totals are dynamically generated based on insert time and logic within the `place_order` function.
+
+--- 
 
 
+# Phase 4: Stock Replenishments and automation
+
+
+### Procedure: Automatically Replenish Stock When Product is Below Reorder Level
+
+Created a procedure `replenish_stock` to automatically replenishes stock for products that are below their reorder level in the `products` table. It updates the stock quantity and logs the replenishment in the `inventory_logs` table.
+
+### Logic
+   - The procedure loops through all products in the `products` table where the stock quantity is less than the reorder level.
+   - For each product, the required quantity is calculated as the difference between the reorder level and the current stock quantity. 
+   - The stock quantity of the product is updated by adding the calculated quantity to reach the reorder level
+   - A record is inserted into the `inventory_logs` table to track the replenishment, including the product ID, quantity added, and the type of change (`'replenishment'`):
+   - A notification (`RAISE NOTICE`) is displayed to inform which product has been replenished and by how much:
+
+This procedure ensures that products that fall below their reorder level are automatically replenished and logged in the system, while notifying the user about the changes made.
+
+![Schema Creation Script](sql_scripts/04_restock_procedure.sql)
