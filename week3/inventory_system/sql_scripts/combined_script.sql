@@ -62,19 +62,19 @@ CREATE TABLE inventory_logs (
 -- Insert customers
 INSERT INTO customers (customer_id, customer_name, email, phone_number, country, city)
 VALUES 
-  ('James Appiah', 'ja.appiah@example.com', '0245242798', 'USA', 'New York'),
-  ('Araba Smith', 'arab.smith@example.com', '0547298224', 'USA', 'Chicago'),
-  ('Joseph Lartey', 'joe.lartey@example.com', '0502334922', 'Canada', 'Toronto'),
-  ('Bob Okala', 'bobok@example.com', '0551234567', 'Germany', 'Munich');
+  (1,'James Appiah', 'ja.appiah@example.com', '0245242798', 'USA', 'New York'),
+  (2,'Araba Smith', 'arab.smith@example.com', '0547298224', 'USA', 'Chicago'),
+  (3,'Joseph Lartey', 'joe.lartey@example.com', '0502334922', 'Canada', 'Toronto'),
+  (4,'Bob Okala', 'bobok@example.com', '0551234567', 'Germany', 'Munich');
 
 -- Insert products
 INSERT INTO products (product_id, product_name, category, price, stock_quantity, reorder_level, product_description)
 VALUES 
   (101, 'Wireless Mouse', 'Electronics', 25.99, 120, 20, '2.4GHz wireless mouse with ergonomic design'),
-  ('Laptop Stand', 'Accessories', 35.50, 80, 15, 'Aluminum adjustable stand for laptops'),
-  ('USB-C Hub', 'Electronics', 45.00, 60, 10, 'Multiport adapter with HDMI, USB 3.0, and card reader'),
-  ('Noise Cancelling Headphones', 'Electronics', 150.00, 40, 10, 'Over-ear noise cancelling'),
-  ('Laptop Bag', 'Accessories', 75.00, 50, 10, 'HP Laptop bag for size 15"6 laptops. (Color: Gray)' );
+  (102,'Laptop Stand', 'Accessories', 35.50, 80, 15, 'Aluminum adjustable stand for laptops'),
+  (103,'USB-C Hub', 'Electronics', 45.00, 60, 10, 'Multiport adapter with HDMI, USB 3.0, and card reader'),
+  (104,'Noise Cancelling Headphones', 'Electronics', 150.00, 40, 10, 'Over-ear noise cancelling'),
+  (105,'Laptop Bag', 'Accessories', 75.00, 50, 10, 'HP Laptop bag for size 15"6 laptops. (Color: Gray)' );
 
 -- =====================================================
 -- 2. Create Order Processing Function 
@@ -88,7 +88,7 @@ VALUES
 -- 4. Logs the inventory change
 
 CREATE OR REPLACE FUNCTION place_order(
-    p_customer_id INT,					-- It takes the customer id
+	    p_customer_id INT,					-- It takes the customer id
     p_status VARCHAR,					-- the order's status
     p_product_ids INT[],				-- takes an array of product ids
     p_quantities INT[]					-- quantities of products ordered
@@ -176,8 +176,46 @@ ON products
 FOR EACH ROW
 EXECUTE FUNCTION log_inventory_change();
 
+
 -- =====================================================
--- 3. Create Views for Analysis
+-- 3. Stock Replenishment Procedure
+-- =====================================================
+
+-- Procedure to automatically replenish stock when the product is below the reorder level
+CREATE OR REPLACE PROCEDURE replenish_stock()
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    p RECORD;				-- p is a variable that will hold one row(RECORD) of the from the products table at a time.
+    qty_to_add INT;			-- stores how much quantity of items to be added
+BEGIN
+    -- Loop through products that are low in stock
+    FOR p IN 
+        SELECT product_id, stock_quantity, reorder_level 
+        FROM products 
+        WHERE stock_quantity < reorder_level
+    LOOP
+        -- Calculate how much stock to add to reach 100% of reorder level
+        qty_to_add := CEIL((p.reorder_level * 1.00) - p.stock_quantity);
+
+        -- Update product stock
+        UPDATE products 
+        SET stock_quantity = stock_quantity + qty_to_add
+        WHERE product_id = p.product_id;
+
+        -- Log replenishment
+        INSERT INTO inventory_logs (product_id, change_quantity, change_type)
+        VALUES (p.product_id, qty_to_add, 'replenishment');
+
+		-- notifies which products were restocked and by how much
+        RAISE NOTICE 'Replenished product % with quantity %', p.product_id, qty_to_add;
+    END LOOP;
+END;
+$$;
+
+
+-- =====================================================
+-- 4. Create Views for Analysis
 -- =====================================================
 
 -- View to show customer order summaries
@@ -237,43 +275,6 @@ SELECT
 FROM customers c
 JOIN orders o ON c.customer_id = o.customer_id
 GROUP BY c.customer_id, c.customer_name;
-
--- =====================================================
--- 4. Stock Replenishment Procedure
--- =====================================================
-
--- Procedure to automatically replenish stock when the product is below the reorder level
-CREATE OR REPLACE PROCEDURE replenish_stock()
-LANGUAGE plpgsql
-AS $$
-DECLARE
-    p RECORD;				-- p is a variable that will hold one row(RECORD) of the from the products table at a time.
-    qty_to_add INT;			-- stores how much quantity of items to be added
-BEGIN
-    -- Loop through products that are low in stock
-    FOR p IN 
-        SELECT product_id, stock_quantity, reorder_level 
-        FROM products 
-        WHERE stock_quantity < reorder_level
-    LOOP
-        -- Calculate how much stock to add to reach 100% of reorder level
-        qty_to_add := CEIL((p.reorder_level * 1.00) - p.stock_quantity);
-
-        -- Update product stock
-        UPDATE products 
-        SET stock_quantity = stock_quantity + qty_to_add
-        WHERE product_id = p.product_id;
-
-        -- Log replenishment
-        INSERT INTO inventory_logs (product_id, change_quantity, change_type)
-        VALUES (p.product_id, qty_to_add, 'replenishment');
-
-		-- notifies which products were restocked and by how much
-        RAISE NOTICE 'Replenished product % with quantity %', p.product_id, qty_to_add;
-    END LOOP;
-END;
-$$;
-
 -- ===============================
 -- End of Script
 -- ===============================
