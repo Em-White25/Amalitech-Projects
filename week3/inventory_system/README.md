@@ -147,7 +147,7 @@ This trigger setup ensures all **manual updates** to a product's stock are autom
   - Executes the above function after stock changes, maintaining a transparent history of inventory modifications.
 
 > 🔒 _Future enhancement: Include staff/user information for accountability._
-![Schema Creation Script](/sql_scripts/03_trigger_functions.sql)
+![Trigger functions](/sql_scripts/03_trigger_functions.sql)
 
 
 ---
