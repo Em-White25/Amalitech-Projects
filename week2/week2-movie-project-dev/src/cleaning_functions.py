@@ -121,3 +121,39 @@ def extract_credits(row):
         'cast': ""
     })
 
+
+'''
+    Function to drop columns
+'''
+def drop_columns(df, cols):
+
+    df = df.drop(columns=cols)
+
+
+
+'''
+    Function to convert columns to millions usd
+'''
+def convert_to_millions(df, cols):
+
+    for col in cols:
+        df[f'{col}_million_usd'] = (df[col]/1e6).round(2)
+
+
+'''
+    Function to convert object to datetime
+'''
+def convert_datetime(df, cols):
+
+    for col in cols:
+        df[col] = pd.to_datetime(df[col], errors='coerce')
+
+
+'''
+    Function to round up numbers to 2 decimal places
+'''
+
+def round_to_two(df, cols):
+
+    for col in cols:
+        df[col] = df[col].round(2)
