@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
     * It returns a list of data generated. (eg. list of movies) 
 '''
 
-
+#extracts api data
 def api_extract(url, api_key, data_points):
     # create an empty list to hold fetched data results
     movies = []
@@ -63,6 +63,7 @@ def api_extract(url, api_key, data_points):
       Returns an empty string if extraction fails or input is invalid.
     """
 
+#extracts data from nested columns
 def extract_from_column(row, column_name, key_name='name', is_list=False, separator='|'):
 
     try:
@@ -122,6 +123,7 @@ def extract_credits(row):
     })
 
 
+
 '''
     Function to drop columns
 '''
@@ -152,8 +154,47 @@ def convert_datetime(df, cols):
 '''
     Function to round up numbers to 2 decimal places
 '''
-
 def round_to_two(df, cols):
 
     for col in cols:
         df[col] = df[col].round(2)
+
+
+'''
+    Function for renaming columns
+'''
+'''
+def rename_column(df, old_col, new_col):
+    for col in col:
+        df[new_col] = df[old_col]
+'''
+
+
+#STEP 3 - Advanced Filtering
+    """
+    Filters movies by actor and list of genres, then sorts by rating or any column.
+    
+    Parameters:
+    df (DataFrame): The movies DataFrame.
+    actor_name (str): Name of the actor to search for.
+    genres_list (list): List of genres to filter by (e.g., ['Action', 'Science Fiction']).
+    sort_by (str): Column to sort by (default is 'vote_average').
+    top_n (int or None): Number of top results to return. If None, returns all.
+    
+    Returns:
+    DataFrame: Filtered and sorted DataFrame.
+    """
+# filter by actor    
+def filter_by_actor(df, actor_name, genres_list, sort_by='vote_average', top_n=None):
+
+    df_filtered = df[
+        df['cast'].str.contains(actor_name, case=False, na=False) &
+        df['genres'].apply(lambda g: all(genre.lower() in g.lower() for genre in genres_list))
+    ]
+    
+    df_sorted = df_filtered.sort_values(by=sort_by, ascending=False)
+    
+    if top_n:
+        return df_sorted.head(top_n)
+    
+    return df_sorted
