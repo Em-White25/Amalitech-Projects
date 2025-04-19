@@ -114,8 +114,7 @@ KPIs were analyzed to evaluate each movie’s success from both a business and a
 - **Incredibles 2** – 6x  
 - **The Lion King** – 6x  
 
-**📈 Chart: ROI Distribution**  
-![ROI Distribution](images/roi_distribution.png)
+
 
 ---
 
@@ -125,8 +124,6 @@ KPIs were analyzed to evaluate each movie’s success from both a business and a
 - **The Avengers** – 31,000 votes  
 - **Avengers: Infinity War** – 30,000 votes  
 
-**📈 Chart: Vote Counts**  
-![Most Voted Movies](images/most_voted_movies.png)
 
 ---
 
@@ -150,9 +147,6 @@ High budgets don’t always mean high returns.
 
 - *Avengers: Age of Ultron* had a massive budget (~$365M) but a relatively lower ROI (~3x).
 - *Avatar* and *Titanic* stood out with ROIs over **10x**, showing cost-efficiency and widespread appeal.
-
-**📈 Chart: Budget vs ROI**  
-![Budget vs ROI](images/budget_vs_roi.png)
 
 ---
 
