@@ -1,3 +1,4 @@
+# reusable_functions.py
 
 import os
 import time
@@ -297,7 +298,7 @@ def plot_revenue_vs_budget(df):
     sns.set(style="whitegrid")
 
 
-    plt.figure(figsize=(7, 4))
+    plt.figure(figsize=(10, 6))
     sns.scatterplot(data=plot_df, x="budget_million_usd", y="revenue_million_usd")
     plt.title("Revenue vs Budget")
     plt.xlabel("Budget (Million USD)")
@@ -323,7 +324,7 @@ def plot_roi_distribution_by_genre(df):
     pandas_df = df_exploded.select("genre", "roi").toPandas()
 
 
-    plt.figure(figsize=(7, 4))
+    plt.figure(figsize=(14, 8))
     sns.boxplot(data=pandas_df, x='genre', y='roi')
     plt.title('ROI Distribution by Genre')
     plt.xticks(rotation=45, ha='right')
@@ -339,7 +340,7 @@ def plot_popularity_vs_rating(df):
 
     pandas_df = df.select("vote_average", "popularity").toPandas()
 
-    plt.figure(figsize=(7, 4))
+    plt.figure(figsize=(10, 6))
     sns.scatterplot(data=pandas_df, x='vote_average', y='popularity')
     plt.title('Popularity vs Rating')
     plt.xlabel('Average Rating')
@@ -367,7 +368,7 @@ def plot_yearly_trends(df):
     pandas_df.set_index("release_year", inplace=True)
 
     
-    plt.figure(figsize=(7, 4))
+    plt.figure(figsize=(12, 6))
     sns.lineplot(data=pandas_df, x=pandas_df.index, y="revenue_million_usd", label="Revenue")
     sns.lineplot(data=pandas_df, x=pandas_df.index, y="budget_million_usd", label="Budget")
     plt.title("Yearly Trends: Revenue and Budget")
@@ -377,7 +378,6 @@ def plot_yearly_trends(df):
     plt.grid(True, ls="--", linewidth=0.5)
     plt.tight_layout()
     plt.show()
-
 
 
 
@@ -401,11 +401,7 @@ def plot_franchise_vs_standalone_success(df):
     pandas_df.set_index("is_franchise", inplace=True)
 
    
-    pandas_df[["revenue_million_usd", "budget_million_usd"]].plot(
-    kind="barh", 
-    figsize=(7, 4), 
-    color=["#1f77b4", "#ff7f0e"]
-    )
+    pandas_df[["revenue_million_usd", "budget_million_usd"]].plot(kind="bar", figsize=(10, 6))
     plt.title("Franchise vs Standalone: Revenue and Budget Comparison")
     plt.ylabel("Million USD")
     plt.xticks(rotation=0)
