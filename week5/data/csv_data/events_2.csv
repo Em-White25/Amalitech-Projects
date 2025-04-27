@@ -1,0 +1,201 @@
+User ID,User Name,Action,Product Name,Product Description,Product Price,Event Time
+user_079,Deborah Adjei,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_067,Richard Kwakye,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_021,Peter Class-Peters,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_013,Courage Kwakye,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_009,Jemima Sokpor,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_056,Deborah Adjei,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_099,Enoch Essuman,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_045,Kwesi Obeng,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_037,Eugenia Adjei,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_018,Basit Adjei,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_098,Kwesi Agu-White,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_006,Courage Essuman,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_082,Jason Osei,Viewed,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_024,James Osei,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_047,Eugenia Essuman,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_053,Peter Boateng,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_082,Jason Osei,Viewed,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_065,Jason Obeng,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_067,Richard Kwakye,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_060,Hakeem Adjei,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_027,James Osei,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_067,Richard Kwakye,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_084,Hakeem Kwakye,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_042,Courage Osei,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_025,Kwame Amoako,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_033,Courage Johnson,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_038,Kwesi Adjei,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_089,James Adjei,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_087,Kwaku Johnson,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_069,Peter Adjei,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_037,Eugenia Adjei,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_016,Kwesi Amoako,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_060,Hakeem Adjei,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_070,Deborah Johnson,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_026,Jason Boateng,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_013,Courage Kwakye,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_042,Courage Osei,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_054,Kwaku Agu-White,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_004,Hakeem Class-Peters,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_018,Basit Adjei,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_061,Enoch Wikireh,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_099,Enoch Essuman,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_081,Enoch Essuman,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_072,Kwesi Wikireh,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_033,Courage Johnson,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_076,Kwesi Wikireh,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_008,Kwaku Amoako,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_053,Peter Boateng,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_011,James Agu-White,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_046,Jemima Boateng,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_075,Kwame Obeng,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_007,Hakeem Johnson,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_077,James Osei,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_048,Hakeem Essuman,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_060,Hakeem Adjei,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_045,Kwesi Obeng,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_002,Kwesi Agu-White,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_093,Jason Osei,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_071,Kwame Kwakye,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_028,Kwame Osei,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_012,Jason Adjei,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_052,Deborah Class-Peters,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_002,Kwesi Agu-White,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_096,Deborah Agu-White,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_078,Richard Kwakye,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_022,Eugenia Amoako,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_037,Eugenia Adjei,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_012,Jason Adjei,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_001,Hakeem Wikireh,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_045,Kwesi Obeng,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_075,Kwame Obeng,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_037,Eugenia Adjei,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_062,James Obeng,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_072,Kwesi Wikireh,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_047,Eugenia Essuman,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_025,Kwame Amoako,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_022,Eugenia Amoako,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_084,Hakeem Kwakye,Viewed,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_015,Courage Kwakye,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_024,James Osei,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_085,Basit Amoako,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_019,Kwame Wikireh,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_030,Deborah Kwakye,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_078,Richard Kwakye,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_065,Jason Obeng,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_001,Hakeem Wikireh,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_015,Courage Kwakye,Viewed,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_058,Hakeem Amoako,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_096,Deborah Agu-White,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_031,Deborah Kwakye,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_072,Kwesi Wikireh,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_086,Richard Johnson,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_029,Jemima Class-Peters,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_070,Deborah Johnson,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_093,Jason Osei,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_096,Deborah Agu-White,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_091,Peter Osei,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_077,James Osei,Purchased,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_051,Richard Obeng,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_023,Hakeem Osei,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_071,Kwame Kwakye,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_043,Jason Obeng,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_004,Hakeem Class-Peters,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_082,Jason Osei,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_017,Peter Kwakye,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_052,Deborah Class-Peters,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_022,Eugenia Amoako,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_035,Jason Wikireh,Viewed,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_043,Jason Obeng,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_095,Enoch Obeng,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_029,Jemima Class-Peters,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_081,Enoch Essuman,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_051,Richard Obeng,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_066,Kwaku Osei,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_015,Courage Kwakye,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_034,Jason Adjei,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_018,Basit Adjei,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_064,Kwame Adjei,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_051,Richard Obeng,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_001,Hakeem Wikireh,Viewed,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_047,Eugenia Essuman,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_061,Enoch Wikireh,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_011,James Agu-White,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_027,James Osei,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_055,Jemima Obeng,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_050,James Sokpor,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_010,Jason Amoako,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_049,Kwame Essuman,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_001,Hakeem Wikireh,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_070,Deborah Johnson,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_082,Jason Osei,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_057,Deborah Class-Peters,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_090,Enoch Agu-White,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_055,Jemima Obeng,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_062,James Obeng,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_001,Hakeem Wikireh,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_070,Deborah Johnson,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_053,Peter Boateng,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_064,Kwame Adjei,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_014,Kwame Amoako,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_054,Kwaku Agu-White,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_083,Jemima Agu-White,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_012,Jason Adjei,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_023,Hakeem Osei,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_040,Kwaku Boateng,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_072,Kwesi Wikireh,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_092,Deborah Adjei,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_035,Jason Wikireh,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_085,Basit Amoako,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_038,Kwesi Adjei,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_016,Kwesi Amoako,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_081,Enoch Essuman,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_055,Jemima Obeng,Viewed,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_041,Kwame Essuman,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_100,Kwaku Amoako,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_005,Basit Essuman,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_065,Jason Obeng,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_028,Kwame Osei,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_002,Kwesi Agu-White,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_035,Jason Wikireh,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_060,Hakeem Adjei,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_025,Kwame Amoako,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_011,James Agu-White,Viewed,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_073,Deborah Wikireh,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_081,Enoch Essuman,Purchased,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_059,Jason Kwakye,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_073,Deborah Wikireh,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_033,Courage Johnson,Purchased,Product: Wireless Charger,Description: Fast wireless charging pad for smartphones,Price: 34.99,2025-04-27 21:17:25
+user_058,Hakeem Amoako,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_017,Peter Kwakye,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_019,Kwame Wikireh,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_018,Basit Adjei,Viewed,Product: Webcam,Description: HD webcam with privacy shutter,Price: 49.99,2025-04-27 21:17:25
+user_031,Deborah Kwakye,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_004,Hakeem Class-Peters,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_065,Jason Obeng,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_063,Hakeem Amoako,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_024,James Osei,Viewed,Product: Smart Watch,Description: Fitness tracker with heart rate monitor,Price: 149.99,2025-04-27 21:17:25
+user_065,Jason Obeng,Purchased,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_021,Peter Class-Peters,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_085,Basit Amoako,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_044,Kwame Kwakye,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_029,Jemima Class-Peters,Purchased,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_023,Hakeem Osei,Viewed,Product: Wireless Mouse,Description: Wireless mouse with 2.4GHz wireless technology,Price: 29.99,2025-04-27 21:17:25
+user_008,Kwaku Amoako,Viewed,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_098,Kwesi Agu-White,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_003,Peter Adjei,Purchased,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_010,Jason Amoako,Purchased,Product: Mousepad,Description: Gaming mousepad with anti-slip surface,Price: 19.99,2025-04-27 21:17:25
+user_087,Kwaku Johnson,Viewed,Product: Headphones,Description: Noise-cancelling headphones with 30-hour battery life,Price: 199.99,2025-04-27 21:17:25
+user_046,Jemima Boateng,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_021,Peter Class-Peters,Purchased,Product: Keyboard,Description: Mechanical gaming keyboard with RGB backlighting,Price: 89.99,2025-04-27 21:17:25
+user_073,Deborah Wikireh,Viewed,Product: USB Hub,Description: 4-port USB 3.0 hub with power adapter,Price: 24.99,2025-04-27 21:17:25
+user_026,Jason Boateng,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
+user_079,Deborah Adjei,Purchased,Product: Laptop Stand,Description: Adjustable laptop stand for ergonomic positioning,Price: 39.99,2025-04-27 21:17:25
+user_009,Jemima Sokpor,Purchased,Product: Bluetooth Speaker,Description: Portable waterproof Bluetooth speaker,Price: 79.99,2025-04-27 21:17:25
