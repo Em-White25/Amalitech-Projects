@@ -100,3 +100,11 @@ for file_num in range(1, 3):
         writer.writerows(events)
 
     print(f"Successfully generated 200 events and saved to {csv_file_path}")
+
+'''
+    CLEAN THIS UP LATER. THINGS TO ADD:
+    - randomize the number of events per file
+    - randomize the number the event times 
+    - maybe add more products
+    - add error handling
+'''
