@@ -107,4 +107,5 @@ for file_num in range(1, 3):
     - randomize the number the event times 
     - maybe add more products
     - add error handling
+    - add errors to the data for transformations
 '''
