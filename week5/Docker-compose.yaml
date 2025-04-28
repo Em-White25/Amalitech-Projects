@@ -3,11 +3,11 @@ services:
     image: postgres:13
     container_name: postgres
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: amalitech
       POSTGRES_PASSWORD: p0stgr3s
       POSTGRES_DB: ecommerce_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -60,6 +60,8 @@ services:
       depends_on:
         - spark-master
         - postgres
+      volumes:
+        - ./notebooks:/home/jovyan/work
 
 
 networks:
