@@ -4,3 +4,6 @@
 #ignore all .ipynb_checkpoints
 *.ipynb_checkpoints
 
+#ignore all .env files
+.env
+
