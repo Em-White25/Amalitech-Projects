@@ -4,11 +4,11 @@ This project demonstrates a real-time data pipeline for ingesting and processing
 
 ---
 
-## Overview
+## [Overview](docs/project_overview.md)
 
 The system simulates a stream of user events (product views and purchases), processes them in real time using Spark, and stores the processed data in a PostgreSQL database for analysis.
 
-For a detailed overview of the project, its goals, architecture, technologies used, and data flow, please refer to the [Project Overview](docs/project_overview.md) document in the `docs` directory.
+For a detailed overview of the project, its goals, architecture, technologies used, and data flow, please refer to the [Project Overview](docs/project_overview.md) document in the `docs/` directory.
 
 ---
 
