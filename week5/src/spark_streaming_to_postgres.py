@@ -22,7 +22,7 @@ streaming_schema = StructType([
     StructField("status", StringType(), True),
     StructField("product_name", StringType(), True),
     StructField("product_description", StringType(), True),
-    StructField("product_price", StringType(), True),  # Corrected field name
+    StructField("product_price", StringType(), True), 
     StructField("event_time", StringType(), True)
 ])
 
@@ -40,11 +40,11 @@ streaming_df_transformed = streaming_df.withColumn(
 ).withColumn(
     "product_description", regexp_extract(col("product_description"), "Description: (.*)", 1)
 ).withColumn(
-    "product_price", regexp_extract(col("product_price"), "Price: (.*)", 1).cast("float")  # Corrected field name and conversion
+    "product_price", regexp_extract(col("product_price"), "Price: (.*)", 1).cast("float") 
 ).withColumn(
     "event_time", to_timestamp(col("event_time"))
 ).select(
-    "user_id", "user_name", "status", "product_name", "product_description", "product_price", "event_time" # Corrected field names
+    "user_id", "user_name", "status", "product_name", "product_description", "product_price", "event_time" 
 ).drop()
 
 streaming_df_transformed.printSchema()
@@ -84,9 +84,9 @@ def write_to_postgres(df: DataFrame, epoch_id: int) -> None:
                 "user_id": row_dict["user_id"],
                 "user_name": row_dict["user_name"],
                 "status": row_dict["status"],
-                "product_name": row_dict["product_name"],  # Corrected field name
-                "product_description": row_dict["product_description"], # Corrected field name
-                "product_price": row_dict["product_price"],  # Corrected field name
+                "product_name": row_dict["product_name"], 
+                "product_description": row_dict["product_description"], 
+                "product_price": row_dict["product_price"],  
                 "event_time": row_dict["event_time"],
             }
             data_to_insert.append(cleaned_row)
