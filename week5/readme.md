@@ -1,6 +1,8 @@
-# Real-Time Spark Streaming Data Ingestion Project
+# Real-Time Spark Structured Streaming (ETL - Data Ingestion)
 
 This project demonstrates a real-time data pipeline for ingesting and processing e-commerce user activity data using Apache Spark Structured Streaming and PostgreSQL.
+
+---
 
 ## Overview
 
@@ -8,8 +10,12 @@ The system simulates a stream of user events (product views and purchases), proc
 
 For a detailed overview of the project, its goals, architecture, technologies used, and data flow, please refer to the [Project Overview](docs/project_overview.md) document in the `docs` directory.
 
-## Folder Structure
+---
 
+## Folder Structure
+---
+
+```
 ./
 ├── data/
 │   └── csv_data/         # Directory where simulated e-commerce event CSV files are generated.
@@ -26,12 +32,23 @@ For a detailed overview of the project, its goals, architecture, technologies us
 ├── Docker-compose.yaml   # Docker Compose configuration file for running multi-container Docker applications.
 ├── Dockerfile.pyspark    # Dockerfile for building the PySpark notebook image.
 └── README.md             # This file, providing a brief overview of the project.
+```
 
+---
 
 ## Getting Started
 
 Refer to the [User Guide](docs/user_guide.md) in the `docs` directory for detailed instructions on how to set up and run the project.
 
+---
+
 ## Documentation
 
 All project-related documentation can be found in the [`docs`](docs/) directory.
+
+## 📌 Notes
+
+- Ensure Docker is installed and running before executing the pipeline.
+- Future improvements 
+    - resolve `spark-submit`
+    - include performance reporting.
