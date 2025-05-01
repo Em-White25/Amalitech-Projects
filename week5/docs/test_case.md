@@ -58,5 +58,13 @@
 | **Input** | Compare the console output of the Spark job with the data queried from the `user_events` table in PostgreSQL for specific events.                                                                    |
 | **Expected Output** | The data in the PostgreSQL table should accurately reflect the transformations performed by Spark .                     |
 | **Actual Output** | Data ingested accurately reflects the transformations performed by spark.                                                                                                                                                              |
-| **Result** | (Pass/Fail)                                                                                                                                                                                         |
+| **Result** | Pass                                                                                                                                                                                        |
 
+| Field           | Details                                                                                                                                                                                             |
+|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Test_ID** | PGSQL03                                                                                                                                                                                             |
+| **Test Case** | **Test if `spark-submit` successfully writes processed data to the `user_events` table in PostgreSQL.** |
+| **Input** | Run the `spark_streaming_to_postgres.py` script using `spark-submit` from within the `pyspark-notebook` container while `data_generator.py` is running. Then, query the `user_events` table in PostgreSQL. |
+| **Expected Output** | The `user_events` table should contain rows corresponding to the events generated and processed by the `spark-submit` job, with the correct data in each column.                                     |
+| **Actual Output** | Successfully reads the stream of data, processes and transforms to console but fails to write to postgres                                                                                                                                                  |
+| **Result** | Fail                                                                                                                                                |
