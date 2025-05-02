@@ -14,10 +14,10 @@ Before you begin, ensure you have the following installed on your system:
 
 1.  **Clone the Repository:** If you have the project files in a repository (e.g., Git), clone it to your local machine:
     ```bash
-    git clone <repository_url>
-    cd <project_directory>
+    git clone https://github.com/Em-White25/Amalitech-Projects/tree/week5/Spark-Streaming/week5
+    cd week5
     ```
-    
+
 2.  **Environment Configuration:**
     * Create a file named `.env` in the root of your project directory.
     * Add the following environment variables to the `.env` file, replacing the placeholder values with your desired PostgreSQL credentials and port:
@@ -27,23 +27,23 @@ Before you begin, ensure you have the following installed on your system:
         POSTGRES_DB=ecommerce_db
         POSTGRES_PORT=5432
         ```
-       
+
 ## 3. Running the Project
 
 1.  **Start the Docker Containers:** Navigate to the root of your project directory (where the `docker-compose.yml` file is located) in your terminal and run the following command:
     ```bash
     docker compose up --build -d
     ```
-    This command will build the Docker images (if necessary) and start the PostgreSQL, Spark Master, Spark Worker, and PySpark Notebook containers in detached mode (running in the background).
+    This command will build the Docker images (if necessary) and start the PostgreSQL, Spark Master, and Spark Worker containers in detached mode (running in the background).
 
 2.  **Set up the PostgreSQL Database:**
-    * Once the containers are running, you need to execute the SQL script to create the `ecommerce_db` database and the `user_events` table. You can do this by executing the `postgres_setup.sql` script inside the `postgres` container. First, copy the SQL file into the container (if it's not already mounted):
+    * Once the containers are running, you need to execute the SQL script to create the `ecommerce_db` database and the `user_events` table. You can do this by executing the `postgres_setup.sql` script inside the `postgres` container. First, copy the SQL file into the container:
         ```bash
-        docker cp postgres_setup.sql postgres:/docker-entrypoint-initdb.d/
+        docker cp postgres/postgres_setup.sql postgres:/docker-entrypoint-initdb.d/
         ```
-        (Docker will usually run scripts in this directory on initialization. If it doesn't, you might need to connect to the container and run it manually using `psql`). Alternatively, you can connect to the PostgreSQL container using `psql` from your host:
+        (Docker will usually run scripts in this directory on initialization. If it doesn't, you might need to connect to the container and run it manually using `pgcli`). Alternatively, you can connect to the PostgreSQL container using `psql` from your host:
         ```bash
-        psql -h localhost -p <host_postgres_port> -U ${POSTGRES_USER} -d postgres -f postgres_setup.sql
+        pgcli -h localhost -p <host_postgres_port> -U ${POSTGRES_USER} -d postgres -f postgres/postgres_setup.sql
         ```
         (Replace `<host_postgres_port>` with the port you mapped in `docker-compose.yml`, e.g., 5432).
 
@@ -55,21 +55,41 @@ Before you begin, ensure you have the following installed on your system:
         ```
     * This script will start generating CSV files in the `data/csv_data` directory. Keep this script running in the background.
 
-4.  4.  **Run the Spark Streaming Job in Jupyter Notebook:**
-    * Open your web browser and navigate to the Jupyter Notebook interface, usually accessible at `http://localhost:8888`.
-    * Navigate to the `/app` directory within the notebook (this is where your project files are mounted).
-    * Open or create a new Python notebook.
-    * In a notebook cell, you can run your `spark_streaming_to_postgres.py` script using the `%run` magic command:
-        ```python
-        %run spark_streaming_to_postgres.py
+4.  **Run the Spark Streaming Job using `spark-submit`:**
+    * Open a new terminal and navigate to the root of your project directory.
+    * Execute the `spark-submit` command to start the Spark streaming application:
+        ```bash
+        docker exec -it spark-master spark-submit --packages org.postgresql:postgresql:42.2.20 --conf spark.driver.extraClassPath=/opt/spark/jars/postgresql-42.2.20.jar /app/spark_streaming_to_postgres.py
         ```
-    * This will execute your Spark Structured Streaming job within the Jupyter Notebook environment. You should see the Spark application logs and any print statements in the notebook output.
+        * **`docker exec -it spark-master`**: This command executes a command inside the `spark-master` container.
+        * **`spark-submit`**: This is the Spark tool for submitting applications to a Spark cluster.
+        * **`--packages org.postgresql:postgresql:42.2.20`**: This option tells Spark to download and include the PostgreSQL JDBC driver. Adjust the version if needed.
+        * **`--conf spark.driver.extraClassPath=/opt/spark/jars/postgresql-42.2.20.jar`**: This explicitly adds the JDBC driver to the driver's classpath. Ensure the path within the container is correct.
+        * **`/app/spark_streaming_to_postgres.py`**: This is the path to your Spark streaming application script within the `spark-master` container (assuming your project directory is mounted as `/app`).
 
+    * You should see the Spark application logs in the terminal.
+
+#### Optional: Running the Spark Streaming Job in Jupyter Notebook
+
+* Open your web browser and navigate to the Jupyter Notebook interface, usually accessible at `http://localhost:8888`.
+* Navigate to the `/app` directory within the notebook (this is where your project files are mounted).
+* Open or create a new Python notebook.
+* In a notebook cell, you can run your `spark_streaming_to_postgres.py` script using the `%run` magic command:
+    ```python
+    %run spark_streaming_to_postgres.py
+    ```
+* This will execute your Spark Structured Streaming job within the Jupyter Notebook environment. You should see the Spark application logs and any print statements in the notebook output. This method is useful for development and debugging but `spark-submit` is the recommended approach for deployment and performance monitoring.
 
 ## 4. Verifying the Data Ingestion
 
-1.  **Monitor Jupyter Notebook Output:** Observe the output of the cell where you ran the `spark_streaming_to_postgres.py` script. It should indicate that the Spark streaming job has started and is processing data. You might see logs related to reading the CSV files and writing to PostgreSQL.
-2.  **Query PostgreSQL:** Connect to the `ecommerce_db` database using a PostgreSQL client (e.g., `psql`, pgAdmin) and query the `user_events` table to see if the data is being written:
+1.  **Monitor Spark Application Logs:**
+    * If you used `spark-submit`, observe the terminal where you ran the command for logs indicating that the Spark streaming job has started, is processing data, and writing to PostgreSQL.
+    * If you used Jupyter Notebook, observe the output of the cell where you ran the script.
+
+2.  **Monitor Spark UI:**
+    * Open your web browser and navigate to the Spark UI at `http://localhost:4040`. This interface provides detailed information about the running Spark application, including streaming statistics, active batches, and executors. You can monitor the progress and any potential issues here.
+
+3.  **Query PostgreSQL:** Connect to the `ecommerce_db` database using a PostgreSQL client (e.g., `psql`, pgAdmin) and query the `user_events` table to see if the data is being written:
     ```sql
     SELECT COUNT(*) FROM user_events;
     SELECT * FROM user_events LIMIT 10;
