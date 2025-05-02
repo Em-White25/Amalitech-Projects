@@ -1,0 +1,19 @@
+# add JDBC driver to spark 
+FROM bitnami/spark:3.5
+
+
+# Switch to root user to ensure proper permissions
+USER root
+
+# Clean up and re-initialize APT
+RUN rm -rf /var/lib/apt/lists/* && \
+    mkdir -p /var/lib/apt/lists/partial && \
+    apt-get update --allow-insecure-repositories && \
+    apt-get install -y --no-install-recommends wget && \
+    rm -rf /var/lib/apt/lists/*
+
+# Download the PostgreSQL JDBC driver
+RUN wget https://jdbc.postgresql.org/download/postgresql-42.7.1.jar -P /opt/spark/jars/
+
+
+
