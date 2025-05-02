@@ -1,8 +1,5 @@
 FROM jupyter/pyspark-notebook
 
 # Install extra Python libraries
-RUN pip install sqlalchemy psycopg2-binary pandas pyarrow python-dotenv
-
-
-
+RUN pip install sqlalchemy psycopg2-binary pandas pyarrow python-dotenv psutil
 
