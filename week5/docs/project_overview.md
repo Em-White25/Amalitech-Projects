@@ -113,8 +113,9 @@ The performance of the real-time data pipeline will be evaluated based on metric
 
 ---
 
-## 9. Future ImprovementsAutomated Startup. 
-* In the next update, I will configure the Docker environment to automatically execute the data generation script (data_generator.py) and submit the Spark streaming job (spark_streaming_to_postgres.py) upon startup using docker-compose up. This will streamline the deployment process and eliminate the need for manual execution of these scripts.  The planned approach involves modifying the docker-compose.yml file to include these commands in the service definition for the Spark driver container.
+## 9. Future Improvements (Automatation). 
+* In the next update, I will configure the Docker environment to automatically execute the data generation script (data_generator.py) and submit the Spark streaming job (spark_streaming_to_postgres.py) upon startup using docker-compose up. This will streamline the deployment process and eliminate the need for manual execution of these scripts.  
+The planned approach involves modifying the docker-compose.yml file to include these commands in the service definition for the Spark driver container.
 
 * Data Deduplication: To enhance data integrity and prevent duplicate entries in the PostgreSQL database, I will implement a deduplication mechanism. This will ensure that each event is written to the database only once, even if the streaming source provides the same event multiple times.  The implementation will likely involve checking for the existence of a record based on a unique key (e.g., user_id, event_time) before performing an insert operation.  
 This could be achieved either within the Spark streaming job itself (using techniques like windowing and filtering) or by utilizing PostgreSQL's features, such as unique constraints or the ON CONFLICT DO NOTHING clause.

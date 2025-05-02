@@ -7,3 +7,5 @@
 #ignore all .env files
 .env
 
+#ignore all files in the data directory
+data/*
