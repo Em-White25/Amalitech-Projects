@@ -6,6 +6,7 @@ This project demonstrates a real-time data pipeline for ingesting and processing
 
 ## [Overview](docs/project_overview.md)
 
+
 The system simulates a stream of user events (product views and purchases), processes them in real time using Spark, and stores the processed data in a PostgreSQL database for analysis.
 
 For a detailed overview of the project, its goals, architecture, technologies used, and data flow, please refer to the [Project Overview](docs/project_overview.md) document in the `docs/` directory.
@@ -49,6 +50,14 @@ All project-related documentation can be found in the [`docs`](docs/) directory.
 ## 📌 Notes
 
 - Ensure Docker is installed and running before executing the pipeline.
-- Future improvements 
-    - resolve `spark-submit`
-    - include performance reporting.
+
+
+## Project Deliverables
+
+- [Project Overview](docs/project_overview.md) - Detailed project architecture and goals
+- [System Architecture](docs/system_architecture.png) - System architecture diagram
+- [Data Generator Script](src/data_generator.py) - Script for generating sample e-commerce data
+- [Streaming to Postgres Script](src/spark_streaming_to_postgres.py) - Script for streaming data to PostgreSQL
+- [Test Cases](docs/test_cases.md) - Manual test plan and results
+- [User Guide](docs/user_guide.md) - Step-by-step instructions
+- [Performance Metrics](docs/performance_metrics.md) - System performance report
