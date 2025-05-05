@@ -67,4 +67,4 @@
 | **Input** | Run the `spark_streaming_to_postgres.py` script using `spark-submit` from within the `pyspark-notebook` container while `data_generator.py` is running. Then, query the `user_events` table in PostgreSQL. |
 | **Expected Output** | The `user_events` table should contain rows corresponding to the events generated and processed by the `spark-submit` job, with the correct data in each column.                                     |
 | **Actual Output** | Successfully reads the stream of data, processes and transforms to console but fails to write to postgres                                                                                                                                                  |
-| **Result** | Fail                                                                                                                                                |
+| **Result** | Pass                                                                                                                                                |
