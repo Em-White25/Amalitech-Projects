@@ -47,11 +47,6 @@ Refer to the [User Guide](docs/user_guide.md) in the `docs` directory for detail
 
 All project-related documentation can be found in the [`docs`](docs/) directory.
 
-## 📌 Notes
-
-- Ensure Docker is installed and running before executing the pipeline.
-
-
 ## Project Deliverables
 
 - [Project Overview](docs/project_overview.md) - Detailed project architecture and goals
