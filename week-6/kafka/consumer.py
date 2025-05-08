@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 from datetime import datetime
 import logging
+from prometheus_client import start_http_server, Gauge
 
 # Configure logging
 logging.basicConfig(
@@ -15,6 +16,9 @@ logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
+
+# Initialize Prometheus metrics
+heart_rate_metric = Gauge('heart_rate', 'Heart rate in BPM', ['customer_id'])
 
 class HeartbeatConsumer:
     def __init__(self, bootstrap_servers='localhost:9092', topic='heartbeat-data'):
@@ -70,10 +74,6 @@ class HeartbeatConsumer:
     def validate_heart_rate(self, heart_rate, customer_id):
         """
         Validate heart rate and check for anomalies.
-        
-        Args:
-            heart_rate (int): Heart rate value to validate
-            customer_id (str): Customer ID for logging
             
         Returns:
             tuple: (is_valid, is_anomaly, message)
@@ -91,11 +91,6 @@ class HeartbeatConsumer:
     def store_record(self, record, is_anomaly=False, anomaly_message=None):
         """
         Store heartbeat record in PostgreSQL.
-        
-        Args:
-            record (dict): Heartbeat record to store
-            is_anomaly (bool): Whether the record contains an anomaly
-            anomaly_message (str): Description of the anomaly if any
         """
         try:
             self.cursor.execute("""
@@ -124,6 +119,9 @@ class HeartbeatConsumer:
             record (dict): Heartbeat record to process
         """
         try:
+            # Update Prometheus metric
+            heart_rate_metric.labels(customer_id=record['customer_id']).set(record['heart_rate'])
+            
             # Validate heart rate
             is_valid, is_anomaly, message = self.validate_heart_rate(
                 record['heart_rate'],
@@ -160,6 +158,9 @@ class HeartbeatConsumer:
             self.consumer.close()
 
 def main():
+    # Start Prometheus metrics server
+    start_http_server(8000)
+    
     # Get configuration from environment variables or use defaults
     bootstrap_servers = os.getenv('KAFKA_BOOTSTRAP_SERVERS', 'localhost:9092')
     topic = os.getenv('KAFKA_TOPIC', 'heartbeat-data')
