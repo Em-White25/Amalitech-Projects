@@ -1,15 +1,12 @@
--- Connect to the database
-\c heartbeat_db;
-
 -- Create the heartbeat_records table
 CREATE TABLE heartbeat_records (
     id SERIAL PRIMARY KEY,
     customer_id VARCHAR(50) NOT NULL,
-    timestamp TIMESTAMP WITH TIME ZONE NOT NULL,
+    timestamp TIMESTAMP  NOT NULL,
     heart_rate INTEGER NOT NULL,
     is_anomaly BOOLEAN DEFAULT FALSE,
     anomaly_message TEXT,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create indexes for efficient querying
