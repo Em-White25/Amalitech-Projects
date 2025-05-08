@@ -64,7 +64,11 @@
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Test_ID** | PGSQL03                                                                                                                                                                                             |
 | **Test Case** | **Test if `spark-submit` successfully writes processed data to the `user_events` table in PostgreSQL.** |
-| **Input** | Run the `spark_streaming_to_postgres.py` script using `spark-submit` from within the `pyspark-notebook` container while `data_generator.py` is running. Then, query the `user_events` table in PostgreSQL. |
+| **Input** | Run the `spark_streaming_to_postgres.py` script using `spark-submit` from within the `pyspark-notebook` container while `data_generator.py` is running:
+```bash
+docker exec -it pyspark-notebook spark-submit /app/src/spark_streaming_to_postgres.py
+```
+Then, query the `user_events` table in PostgreSQL. |
 | **Expected Output** | The `user_events` table should contain rows corresponding to the events generated and processed by the `spark-submit` job, with the correct data in each column.                                     |
-| **Actual Output** | Successfully reads the stream of data, processes and transforms to console but fails to write to postgres                                                                                                                                                  |
+| **Actual Output** | Successfully reads the stream of data, processes and transforms to console and writes to postgres                                                                                                                                                  |
 | **Result** | Pass                                                                                                                                                |
