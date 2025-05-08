@@ -21,7 +21,10 @@
 
 ## 1. Introduction
 
-This project implements a real-time ETL data pipeline designed to ingest and process user activity from a simulated e-commerce platform. The system captures events such as product views and purchases, processes them using Spark Structured Streaming, and ingests the processed data into a PostgreSQL database for further analysis and insights. The Spark application can be run using `spark-submit` for deployment and monitoring of performance metrics. Running the script within a PySpark Jupyter Notebook is also an optional method for development and debugging.
+This project implements a real-time ETL data pipeline designed to ingest and process user activity from a simulated e-commerce platform. The system captures events such as product views and purchases, processes them using Spark Structured Streaming, and ingests the processed data into a PostgreSQL database for further analysis and insights. The Spark application is run using `spark-submit` from within the Jupyter notebook container using the command:
+```bash
+docker exec -it pyspark-notebook spark-submit /app/src/spark_streaming_to_postgres.py
+```
 
 ---
 
@@ -97,25 +100,4 @@ The system will be tested to ensure:
 * The `data_generator.py` script generates CSV files with the correct format and data.
 * Spark Structured Streaming correctly detects and processes new CSV files as they arrive.
 * The data transformations applied by Spark are accurate.
-* Data is written to the `user_events` table in PostgreSQL without errors when run with both `spark-submit` and (optionally) Jupyter Notebook.
-* The performance of the system (e.g., processing speed, latency, throughput) is within acceptable limits when monitored via the Spark UI.
-
----
-
-## 8. Performance Metrics
-
-The performance of the real-time data pipeline will be evaluated based on metrics such as:
-
-* **Latency:** The time delay between an event being generated and it being written to the PostgreSQL database (measured via Spark UI when run with `spark-submit`).
-* **Throughput:** The number of events processed per unit of time (measured via Spark UI when run with `spark-submit`).
-* **Resource Utilization:** CPU and memory usage of the Spark cluster and PostgreSQL database (monitored via Spark UI and Docker stats).
-* **Spark Application Duration:** The total time the Spark streaming application runs.
-
----
-
-## 9. Future Improvements (Automatation). 
-* In the next update, I will configure the Docker environment to automatically execute the data generation script (data_generator.py) and submit the Spark streaming job (spark_streaming_to_postgres.py) upon startup using docker-compose up. This will streamline the deployment process and eliminate the need for manual execution of these scripts.  
-The planned approach involves modifying the docker-compose.yml file to include these commands in the service definition for the Spark driver container.
-
-* Data Deduplication: To enhance data integrity and prevent duplicate entries in the PostgreSQL database, I will implement a deduplication mechanism. This will ensure that each event is written to the database only once, even if the streaming source provides the same event multiple times.  The implementation will likely involve checking for the existence of a record based on a unique key (e.g., user_id, event_time) before performing an insert operation.  
-This could be achieved either within the Spark streaming job itself (using techniques like windowing and filtering) or by utilizing PostgreSQL's features, such as unique constraints or the ON CONFLICT DO NOTHING clause.
+* Data is written to the `user_events`
