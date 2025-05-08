@@ -59,13 +59,11 @@ Before you begin, ensure you have the following installed on your system:
     * Open a new terminal and navigate to the root of your project directory.
     * Execute the `spark-submit` command to start the Spark streaming application:
         ```bash
-        docker exec -it spark-master spark-submit --packages org.postgresql:postgresql:42.2.20 --conf spark.driver.extraClassPath=/opt/spark/jars/postgresql-42.2.20.jar /app/spark_streaming_to_postgres.py
+        docker exec -it pyspark-notebook spark-submit /app/src/spark_streaming_to_postgres.py
         ```
-        * **`docker exec -it spark-master`**: This command executes a command inside the `spark-master` container.
+        * **`docker exec -it pyspark-notebook`**: This command executes a command inside the Jupyter notebook container.
         * **`spark-submit`**: This is the Spark tool for submitting applications to a Spark cluster.
-        * **`--packages org.postgresql:postgresql:42.2.20`**: This option tells Spark to download and include the PostgreSQL JDBC driver. Adjust the version if needed.
-        * **`--conf spark.driver.extraClassPath=/opt/spark/jars/postgresql-42.2.20.jar`**: This explicitly adds the JDBC driver to the driver's classpath. Ensure the path within the container is correct.
-        * **`/app/spark_streaming_to_postgres.py`**: This is the path to your Spark streaming application script within the `spark-master` container (assuming your project directory is mounted as `/app`).
+        * **`/app/src/spark_streaming_to_postgres.py`**: This is the path to your Spark streaming application script within the container.
 
     * You should see the Spark application logs in the terminal.
 
