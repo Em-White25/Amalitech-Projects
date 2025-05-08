@@ -9,3 +9,6 @@
 
 #ignore all files in the data directory
 data/*
+
+#ignore notebook folder
+notebook/*
