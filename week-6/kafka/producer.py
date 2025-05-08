@@ -10,13 +10,7 @@ load_dotenv()
 
 class HeartbeatProducer:
     def __init__(self, bootstrap_servers='localhost:9092', topic='heartbeat-data'):
-        """
-        Initialize the Kafka producer and heartbeat generator.
-        
-        Args:
-            bootstrap_servers (str): Kafka broker address
-            topic (str): Kafka topic name
-        """
+
         # Initialize Kafka producer
         self.producer = KafkaProducer(
             bootstrap_servers=bootstrap_servers,
@@ -31,12 +25,7 @@ class HeartbeatProducer:
         self.topic = topic
         
     def send_record(self, record):
-        """
-        Send a single heartbeat record to Kafka.
-        
-        Args:
-            record (dict): Heartbeat record to send
-        """
+
         try:
             # Send the record to Kafka
             future = self.producer.send(self.topic, value=record)
@@ -52,12 +41,7 @@ class HeartbeatProducer:
             return False
     
     def run(self, interval=1.0):
-        """
-        Continuously generate and send heartbeat data.
-        
-        Args:
-            interval (float): Time between records in seconds
-        """
+        #Continuously generate and send heartbeat data.
         print(f"Starting to produce heartbeat data to topic: {self.topic}")
         print("Press Ctrl+C to stop")
         
