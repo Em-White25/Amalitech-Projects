@@ -3,11 +3,15 @@
 ## Overview
 A containerized data pipeline that processes and analyzes flight price data using Apache Airflow. The system automatically ingests flight pricing data, performs validation and transformation, and stores the results in a PostgreSQL database for analysis.
 
+For a detailed project overview including architecture, challenges, and solutions, see [Project Overview](Project_overview.md).
+
 ## Architecture
 - **Airflow**: Orchestrates the data pipeline
 - **MySQL**: Staging database for raw data
 - **PostgreSQL**: Analytics database for processed data
 - **Docker**: Containerized deployment
+
+![System Architecture](images/system_architecture.png)
 
 ## Project Structure
 ```
@@ -21,6 +25,8 @@ A containerized data pipeline that processes and analyzes flight price data usin
 ├── postgres-init/          # PostgreSQL initialization scripts
 └── Docker-compose.yml      # Container orchestration
 ```
+
+![DAG Graph](images/DAG_Graph.png)
 
 ## Quick Start
 1. Ensure Docker and Docker Compose are installed
