@@ -1,0 +1,14 @@
+#ignore all pycache files
+__pycache__/
+
+#ignore all .pyc files
+*.pyc
+
+#ignore all .pyo files
+*.pyo
+
+#ignore all .pyd files
+*.pyd
+
+#ignore challenges.md
+challenges.md

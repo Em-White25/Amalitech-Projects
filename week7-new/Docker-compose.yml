@@ -1,0 +1,83 @@
+services:
+  airflow:
+    image: apache/airflow:2.10.2
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__CORE__FERNET_KEY=5z5wY3sXj4zF2tK9mP8rQ7vN6uL0iJ2kH1gE4cA9bB8=
+      - AIRFLOW__LOGGING__LOGGING_LEVEL=DEBUG
+      - AIRFLOW_CONN_MYSQL_DEFAULT=mysql://root:rootpassword@mysql:3306/flight_db
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./data:/opt/airflow/data
+      - ./dags/requirements.txt:/opt/airflow/requirements.txt
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mysql:
+        condition: service_healthy
+    command: >
+        bash -c "pip install --upgrade pip &&
+            pip install -r /opt/airflow/requirements.txt &&
+            for i in {1..3}; do airflow db migrate && break || sleep 5; done &&
+            airflow roles create Admin Viewer Public Op User || true &&
+            airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com --password admin &&
+            airflow db upgrade &&
+            (airflow webserver & airflow scheduler)"
+    networks:
+      - flight_pipeline
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=flight_db
+      - MYSQL_ALLOW_EMPTY_PASSWORD=false
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-config/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
+    command: >
+      bash -c "chmod 644 /etc/mysql/conf.d/my.cnf && docker-entrypoint.sh mysqld"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-prootpassword"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    networks:
+      - flight_pipeline
+
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=airflow
+      - POSTGRES_PASSWORD=airflow
+      - POSTGRES_DB=airflow
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    command: >
+      -c "listen_addresses=*"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - flight_pipeline
+
+volumes:
+  mysql_data:
+  postgres_data:
+
+networks:
+  flight_pipeline:
+    driver: bridge
